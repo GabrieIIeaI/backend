@@ -6,18 +6,21 @@ import { AppService } from './app.service';
 import { ProductModule } from './products/product.module';
 
 @Module({
+  // Acesso ao banco de dados
   imports: [
     TypeOrmModule.forRoot({
-        type: 'mysql',
-        host: 'db',
-        port: 3306,
-        username: 'root',
-        password: 'admin',
-        database: 'store',
-        entities: [Product],
-        synchronize: true,
+      type: 'mysql',
+      host: 'db',
+      port: 3306,
+      username: 'root',
+      password: 'admin',
+      database: 'store',
+      entities: [Product],
+      synchronize: true,
     }),
-    ProductModule
+
+    //Módulos
+    ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],
